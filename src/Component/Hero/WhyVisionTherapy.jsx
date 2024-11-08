@@ -1,38 +1,16 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../../Shared/Loading";
 
 const WhyVisionTherapy = () => {
-  const [whyMedmyneData, setwhyMedmyneData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  //   load data
-  useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:5000/api/v1/whyMedmyne/getwhyMedmyne`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data.length) {
-          setwhyMedmyneData(data?.data[0]);
-        }
-      });
-    setLoading(false);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <div className="bg-white">
       <section className="bg-white text-black">
         <div className=" max-w-screen-xl  py-8 sm:py-12  lg:py-16  lg:w-10/12 w-11/12  mx-auto">
           <div className="mx-auto max-w-lg text-center">
-            <h2 className="text-3xl font-bold sm:text-4xl">
-              {whyMedmyneData?.sectionName}
-            </h2>
+            <h2 className="text-3xl font-bold sm:text-4xl">WhyVisionTherapy</h2>
 
             <p className="mt-4 text-black">
-              {whyMedmyneData?.sectionDescription}
+              Vision therapy can be an effective alternative to surgery in
+              severe cases of lazy eye.
             </p>
           </div>
 
@@ -59,11 +37,12 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.firstCardTitle}
+                Improved visual acuity
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.firstCardDes}
+                Vision therapy can help improve visual acuity, binocular vision,
+                and depth perception.{" "}
               </p>
             </a>
 
@@ -89,11 +68,12 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.secondCardTitle}
+                Improved stereopsis
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.secondCardDes}
+                Vision therapy can help develop stereopsis, which is a deeper
+                neurological connection between the two eyes and the brain.
               </p>
             </a>
 
@@ -119,11 +99,12 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.thirdCardTitle}
+                Improved academic performance
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.thirdCardDes}
+                Vision therapy can improve visual skills and how the eyes work
+                together, making it easier to read and write.{" "}
               </p>
             </a>
 
@@ -149,11 +130,11 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.fourthCardTitle}
+                Increased confidence
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.fourthCardDes}
+                Vision therapy can help increase confidence.
               </p>
             </a>
 
@@ -179,11 +160,12 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.fifthCardTitle}
+                Improved academic performance
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.fifthCardDes}
+                Vision therapy can improve visual skills and how the eyes work
+                together, making it easier to read and write.{" "}
               </p>
             </a>
 
@@ -209,11 +191,12 @@ const WhyVisionTherapy = () => {
               </svg>
 
               <h2 className="mt-4 text-xl font-bold text-secondary">
-                {whyMedmyneData?.sixthCardTitle}
+                Improved communication between eyes and brain
               </h2>
 
               <p className="mt-1 text-sm text-black">
-                {whyMedmyneData?.sixthCardDes}
+                Vision therapy can help the brain and eyes communicate better,
+                which can help align the lazy eye.
               </p>
             </a>
           </div>
