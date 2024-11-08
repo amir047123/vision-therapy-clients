@@ -1,6 +1,6 @@
 const DoctorReviewCard = () => {
   return (
-    <div className=" bg-white text-black p-3 mt-5 rounded-md justify-start items-start">
+    <div className="mx-5 bg-white text-black p-3 mt-5 rounded-md justify-start items-start">
       <p className="">
         daughter's lazy eye improved significantly after using AmblyoPlay Vision
         Therapy.

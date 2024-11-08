@@ -61,7 +61,7 @@ const Login = () => {
       .then((res) => {
         if (res?.data?.status === "success") {
           // Store access token in localStorage
-          localStorage.setItem("careSeeAccessToken", res?.data?.token);
+          localStorage.setItem("visionAccessToken", res?.data?.token);
           toast.success("Login Successfully");
 
           // Save token and user information
@@ -103,9 +103,11 @@ const Login = () => {
   }
 
   return (
+    <div className="min-h-screen bg-white flex justify-center items-center">
+
     <form
       onSubmit={handelSubmit}
-      className="lg:grid lg:grid-cols-1 gap-2 text-center mx-10"
+      className="lg:grid lg:grid-cols-1 gap-2 text-center mx-10 max-w-md min-w-[400px] bg-gray-50 p-10"
     >
       <p className="text-center text-xs mt-1 opacity-50">
         Login to use our special features
@@ -161,6 +163,7 @@ const Login = () => {
         </div>
       </div>
     </form>
+    </div>
   );
 };
 

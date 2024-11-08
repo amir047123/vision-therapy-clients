@@ -19,7 +19,7 @@ const SuperAdminAllPatient = () => {
         const response = await fetch(
           `http://localhost:5000/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"user"}`,{
             headers: {
-              authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+              authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
             }
           }
         );

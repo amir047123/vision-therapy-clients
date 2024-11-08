@@ -26,17 +26,12 @@ const AuthHome = () => {
             <div className=" justify-center mt-5    gap-14 items-center flex">
               <div className=" grid grid-cols-1">
                 <Link
-                  to="/login/doctor"
+                  to="/login/user"
                   className=" mb-3 rounded-sm text-secondary font-bold border  border-secondary px-7 py-1"
                 >
                   Log in
                 </Link>
-                <Link
-                  to="/login/doctor"
-                  className=" mb-3  rounded-sm font-bold   bg-secondary  text-white py-1 px-7 "
-                >
-                  Sign up
-                </Link>
+                
               </div>
             </div>
           </div>

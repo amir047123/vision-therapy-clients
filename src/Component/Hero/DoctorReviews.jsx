@@ -15,6 +15,7 @@ const DoctorReviews = () => {
               <div className="overflow-hidden" data-glide-el="track">
                 <div className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0 ">
                   <DoctorReviewCard />
+                  <DoctorReviewCard />
                 </div>
               </div>
               {/*    <!-- Controls --> */}
@@ -74,7 +75,7 @@ const DoctorReviews = () => {
             <p className=" mb-2">Do you know?</p>
 
             <p>
-              At CareSee, I've witnessed a profound commitment to enhancing
+              At vision, I've witnessed a profound commitment to enhancing
               vision. Their blend of research, technology, and personalized care
               sets a new standard in vision therapy. They approach each case
               with precision and compassion, transforming lives and broadening

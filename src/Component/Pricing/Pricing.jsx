@@ -54,7 +54,7 @@ const Pricing = () => {
       body: JSON.stringify(data),
       headers: {
         "content-type": "application/json",
-        authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },
     })
       .then((res) => res.json())
