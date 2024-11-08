@@ -1,11 +1,10 @@
-
+import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
+import DoctorReviews from "../../Component/Hero/DoctorReviews";
 import Hero from "../../Component/Hero/Hero";
 import State from "../../Component/Hero/State";
-import WhyMedmyne from "../../Component/Hero/WhyMedmyne";
 import Team from "../../Component/Hero/Team";
-import DoctorReviews from "../../Component/Hero/DoctorReviews";
+import WhyMedmyne from "../../Component/Hero/WhyMedmyne";
 import HowDoesItWork from "../../Component/HowDoesItWork/HowDoesItWork";
-import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
 
 const Home = () => {
   return (
@@ -17,7 +16,6 @@ const Home = () => {
       <Team color={"bg-white"} />
       <DoctorReviews />
       <HowDoesItWork />
-      {/* <DeveloperTeam /> */}
     </div>
   );
 };
