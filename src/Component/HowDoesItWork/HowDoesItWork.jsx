@@ -1,28 +1,14 @@
-import React, { useEffect, useState } from "react";
-
 const HowDoesItWork = () => {
-  const [data, setData] = useState([]);
-
-  //   load data
-  useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/steps/getSteps`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data.length) {
-          setData(data?.data[0]);
-        }
-      });
-  }, []);
-
   return (
     <section className="py-10 bg-white sm:py-16 lg:py-24">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
-            {data?.title}
+            Vision Therapy for Lazy Eye
           </h2>
           <p className="max-w-lg mx-auto mt-4 text-base leading-relaxed text-gray-600">
-            {data?.description}
+            Vision therapy is a program that aims to improve a person's visual
+            abilities, comfort, and ease
           </p>
         </div>
 
@@ -41,9 +27,12 @@ const HowDoesItWork = () => {
                 <span className="text-xl font-semibold text-gray-700"> 1 </span>
               </div>
               <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                {data?.firstStepsTitle}
+                Strabismus
               </h3>
-              <p className="mt-4 text-base text-gray-600">{data?.firstStepsDes}</p>
+              <p className="mt-4 text-base text-gray-600">
+                Eye exercises Can help with some types of strabismus, such as
+                convergence insufficiency
+              </p>
             </div>
 
             <div>
@@ -51,9 +40,12 @@ const HowDoesItWork = () => {
                 <span className="text-xl font-semibold text-gray-700"> 2 </span>
               </div>
               <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                {data?.secondStepsTitle}
+                Refractive Deprivations
               </h3>
-              <p className="mt-4 text-base text-gray-600">{data?.secondStepsDes}</p>
+              <p className="mt-4 text-base text-gray-600">
+                Vision therapy It is a program that aims to improve a person's
+                visual abilities.
+              </p>
             </div>
 
             <div>
@@ -61,9 +53,12 @@ const HowDoesItWork = () => {
                 <span className="text-xl font-semibold text-gray-700"> 3 </span>
               </div>
               <h3 className="mt-6 text-xl font-semibold leading-tight text-black md:mt-10">
-                {data?.thirdStepsTitle}
+                Being Born Prematurely
               </h3>
-              <p className="mt-4 text-base text-gray-600">{data?.thirdStepsDes}</p>
+              <p className="mt-4 text-base text-gray-600">
+                Lazy eye, also known as amblyopia, is usually treated with
+                glasses, eye patches, or medication
+              </p>
             </div>
           </div>
         </div>

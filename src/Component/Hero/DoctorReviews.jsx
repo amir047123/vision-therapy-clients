@@ -1,60 +1,7 @@
-import React, { useEffect, useState } from "react";
 // import glide from "@glidejs/glide";
 import DoctorReviewCard from "./DoctorReviewCard";
-import Loading from "../../Shared/Loading";
 
 const DoctorReviews = () => {
-  const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  //   load data
-  useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:5000/api/v1/doctorReview/getdoctorReview`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data.length) {
-          setDoctors(data?.data);
-        }
-      });
-    setLoading(false);
-  }, []);
-
-  // useEffect(() => {
-  //   if (doctors?.length) {
-  //     const slider = new glide(".glide-04", {
-  //       type: "slider",
-  //       focusAt: "center",
-  //       perView: 2,
-  //       autoplay: 2000,
-  //       animationDuration: 700,
-  //       gap: 10,
-  //       breakpoints: {
-  //         // On screens smaller than 800px, display 2 slides per view.
-  //         900: {
-  //           perView: 2,
-  //         },
-  //         // On screens smaller than 500px, display 1 slide per view.
-  //         500: {
-  //           perView: 1,
-  //         },
-  //       },
-  //       classes: {
-  //         nav: {
-  //           active: "[&>*]:bg-wuiSlate-700",
-  //         },
-  //       },
-  //     }).mount();
-
-  //     return () => {
-  //       slider?.destroy();
-  //     };
-  //   }
-  // }, [doctors]);
-
-  if (loading) {
-    return <Loading />;
-  }
   return (
     <div className="my-10 w-full bg-bgColor pt-5">
       <h1 className="lg:text-4xl md:text-3xl text-2xl font-bold text-center mb-3 ">
@@ -67,9 +14,7 @@ const DoctorReviews = () => {
               {/*    <!-- Slides --> */}
               <div className="overflow-hidden" data-glide-el="track">
                 <div className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0 ">
-                  {doctors?.map((doctor) => (
-                    <DoctorReviewCard key={doctor?._id} doctor={doctor} />
-                  ))}
+                  <DoctorReviewCard />
                 </div>
               </div>
               {/*    <!-- Controls --> */}

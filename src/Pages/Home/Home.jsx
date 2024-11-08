@@ -1,13 +1,12 @@
-
+import AboutVision from "../../Component/About/AboutVision";
+import DoctorReviews from "../../Component/Hero/DoctorReviews";
 import Hero from "../../Component/Hero/Hero";
 import State from "../../Component/Hero/State";
-import WhyMedmyne from "../../Component/Hero/WhyMedmyne";
 import Team from "../../Component/Hero/Team";
-import DoctorReviews from "../../Component/Hero/DoctorReviews";
 import HowDoesItWork from "../../Component/HowDoesItWork/HowDoesItWork";
-import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
 import HomeFaq from "../../Component/HomeFaq/HomeFaq";
 import Stats from "../../Component/Stats/Stats";
+import WhyVisionTherapy from "../../Component/Hero/WhyVisionTherapy";
 
 const Home = () => {
   return (
@@ -15,13 +14,12 @@ const Home = () => {
       <Hero />
       <Stats />
       <HomeFaq />
-      <WhyMedmyne />
+      <WhyVisionTherapy />
       <State />
-      <AboutMedmine />
+      <AboutVision />
       <Team color={"bg-white"} />
       <DoctorReviews />
       <HowDoesItWork />
-      {/* <DeveloperTeam /> */}
     </div>
   );
 };

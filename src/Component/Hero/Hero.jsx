@@ -1,41 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import Lottie from "lottie-react";
+import { Link } from "react-router-dom";
 import doctor from "../../Assets/animation/heroDoctor.json";
-import { useState } from "react";
-import { useEffect } from "react";
-import Loading from "../../Shared/Loading";
 
 const Hero = () => {
-  const [heroData, setHeroData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  //   load data
-  useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:5000/api/v1/hero/getHero`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data.length) {
-          setHeroData(data?.data[0]);
-        }
-      });
-    setLoading(false);
-  }, []);
-
-  if (loading) {
-    return <Loading />;
-  }
   return (
     <div className="bg-white  py-10">
       <div className="grid md:grid-cols-2 grid-cols-1 gap-y-14 lg:w-10/12 w-11/12  mx-auto items-center">
         <div className="">
-          <div className="  md:text-4xl lg:text-6xl text-4xl font-bold ">
-            <h1 className="text-secondary ">{heroData?.title}</h1>
+          <div className="  md:text-xl lg:text-6xl text-4xl font-bold ">
+            <p1>Eye tracking exercises</p1>
           </div>
 
           <div className=" mt-10 lg:w-9/12 md:w-10/12 w-11/12">
-            
-            <div dangerouslySetInnerHTML={{ __html:heroData?.content }}></div>
+            <div>
+              These help improve your ability to follow moving objects smoothly
+              with your eyes, enhancing coordination and focus.
+            </div>
 
             <Link
               to="/contactUs"

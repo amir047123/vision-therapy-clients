@@ -1,29 +1,10 @@
-import React from "react";
+
 import Marquee from "react-fast-marquee";
-import { useState } from "react";
-import { useEffect } from "react";
-import Loading from "../../Shared/Loading";
 import TeamCard from "./TeamCard";
 
 const Team = ({ color }) => {
-  const [teams, setTeams] = useState([]);
-  const [loading, setLoading] = useState(false);
-  //   load data
-  useEffect(() => {
-    setLoading(true);
-    fetch(`http://localhost:5000/api/v1/teams`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.data.length) {
-          setTeams(data?.data);
-        }
-      });
-    setLoading(false);
-  }, []);
 
-  if (loading) {
-    return <Loading />;
-  }
+
 
   return (
     <div id="students" className={`${color} pb-10`}>

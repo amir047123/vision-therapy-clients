@@ -1,14 +1,10 @@
-import React from "react";
-import { Icon } from "@iconify/react";
 import axios from "axios";
-import Lottie from "lottie-react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
-import contact from "../../Assets/animation/contact.json";
 
-import State from "../../Component/Hero/State";
+import AboutVision from "../../Component/About/AboutVision";
 import DoctorReviews from "../../Component/Hero/DoctorReviews";
-import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
+import State from "../../Component/Hero/State";
 import ContactUs from "../ContactUs/ContactUs";
 
 const AboutUs = () => {
@@ -52,7 +48,7 @@ const AboutUs = () => {
     <div className="bg-white">
       <div>
         <div>
-          <AboutMedmine />
+          <AboutVision />
 
           <div className=" my-10 ">
             <State></State>
