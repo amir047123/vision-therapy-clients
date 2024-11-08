@@ -1,9 +1,9 @@
-import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
+import AboutVision from "../../Component/About/AboutVision";
 import DoctorReviews from "../../Component/Hero/DoctorReviews";
 import Hero from "../../Component/Hero/Hero";
 import State from "../../Component/Hero/State";
 import Team from "../../Component/Hero/Team";
-import WhyMedmyne from "../../Component/Hero/WhyMedmyne";
+import WhyVisionTherapy from "../../Component/Hero/WhyVisionTherapy";
 import HowDoesItWork from "../../Component/HowDoesItWork/HowDoesItWork";
 
 const Home = () => {
@@ -11,8 +11,9 @@ const Home = () => {
     <div className="">
       <Hero />
       <State />
-      <WhyMedmyne />
-      <AboutMedmine />
+      <WhyVisionTherapy />
+
+      <AboutVision />
       <Team color={"bg-white"} />
       <DoctorReviews />
       <HowDoesItWork />
