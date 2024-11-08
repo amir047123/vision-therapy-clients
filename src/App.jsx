@@ -34,9 +34,9 @@ function App() {
         <Route
           path="/superAdminDashboard"
           element={
+            <PrivateRoute allowedRoles={["superAdmin"]}>
               <SuperAdminDashboard />
-            // <PrivateRoute allowedRoles={["superAdmin"]}>
-            // </PrivateRoute>
+            </PrivateRoute>
           }
         >
           <Route index element={<SuperAdminDashboardIndex />} />

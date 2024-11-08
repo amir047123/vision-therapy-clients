@@ -25,7 +25,7 @@ const PaymentSuccess = () => {
             <div className="success-title">Payment Complete</div>
             <div className="success-description">
               <b>{data?.userName}</b> Your payment for <b className="text-primary">{data?.packagePrice}</b> in BDT has been received and send to
-              careseebd
+              vision
             </div>
             <div className="order-details">
               <div className="order-number-label">Transition id</div>

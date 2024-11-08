@@ -61,7 +61,7 @@ const Login = () => {
       .then((res) => {
         if (res?.data?.status === "success") {
           // Store access token in localStorage
-          localStorage.setItem("careSeeAccessToken", res?.data?.token);
+          localStorage.setItem("visionAccessToken", res?.data?.token);
           toast.success("Login Successfully");
 
           // Save token and user information

@@ -34,7 +34,7 @@ const SuperAdminDoctorViewPatient = () => {
     axios
       .get(`http://localhost:5000/api/v1/user/${id}`,{
         headers: {
-          authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
         }
       })
       .then((response) => {
@@ -52,7 +52,7 @@ const SuperAdminDoctorViewPatient = () => {
     fetch(
       `http://localhost:5000/api/v1/user/specific?fieldName=${"referralId"}&&fieldValue=${id}`,{
         headers: {
-          authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+          authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
         }
       }
     ).then((res) =>

@@ -1,11 +1,7 @@
-
 import Marquee from "react-fast-marquee";
 import TeamCard from "./TeamCard";
 
 const Team = ({ color }) => {
-
-
-
   return (
     <div id="students" className={`${color} pb-10`}>
       <h3 className="lg:text-5xl md:text-4xl text-2xl font-bold text-center pt-16">
@@ -18,9 +14,11 @@ const Team = ({ color }) => {
       <div className="w-11/12 mx-auto overflow-hidden mt-10">
         <Marquee pauseOnHover={true} autoFill={true} speed={30} gradient={true}>
           <div className="flex">
-            {teams?.map((team) => (
-              <TeamCard key={team?._id} team={team} />
-            ))}
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
           </div>
         </Marquee>
         <Marquee
@@ -32,9 +30,11 @@ const Team = ({ color }) => {
           direction={"right"}
         >
           <div className="flex">
-            {teams?.reverse()?.map((team) => (
-              <TeamCard key={team?._id} team={team} />
-            ))}
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
+            <TeamCard />
           </div>
         </Marquee>
       </div>

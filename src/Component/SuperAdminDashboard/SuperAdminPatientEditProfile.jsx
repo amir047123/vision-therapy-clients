@@ -20,7 +20,7 @@ const SuperAdminPatientEditProfile = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/user/${id}`, {
       headers: {
-        authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },
     })
       .then((res) => res.json())

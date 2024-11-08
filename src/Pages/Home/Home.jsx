@@ -13,9 +13,9 @@ const Home = () => {
     <div className="">
       <Hero />
       <Stats />
-      <HomeFaq />
       <WhyVisionTherapy />
       <State />
+      <HomeFaq />
       <AboutVision />
       <Team color={"bg-white"} />
       <DoctorReviews />

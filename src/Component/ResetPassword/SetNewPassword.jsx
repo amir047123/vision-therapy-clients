@@ -15,7 +15,7 @@ const SetNewPassword = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/user/by-email?email=${email}`,{
       headers: {
-        authorization: `Bearer ${localStorage.getItem("careSeeAccessToken")}`,
+        authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       }
     })
       .then((res) => res.json())
