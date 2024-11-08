@@ -6,13 +6,17 @@ import Team from "../../Component/Hero/Team";
 import DoctorReviews from "../../Component/Hero/DoctorReviews";
 import HowDoesItWork from "../../Component/HowDoesItWork/HowDoesItWork";
 import AboutMedmine from "../../Component/AboutMedmine/AboutMedmine";
+import HomeFaq from "../../Component/HomeFaq/HomeFaq";
+import Stats from "../../Component/Stats/Stats";
 
 const Home = () => {
   return (
     <div className="">
       <Hero />
-      <State />
+      <Stats />
+      <HomeFaq />
       <WhyMedmyne />
+      <State />
       <AboutMedmine />
       <Team color={"bg-white"} />
       <DoctorReviews />

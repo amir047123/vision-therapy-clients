@@ -10,6 +10,7 @@ import Pricing from "../Component/Pricing/Pricing";
 import PaymentSuccess from "../Pages/PaymentSuccess/PaymentSuccess";
 import PaymentFail from "../Pages/PaymentFail/PaymentFail";
 import PaymentCancel from "../Pages/PaymentCancel/PaymentCancel";
+import Login from "../Component/LoginSingup/Login";
 
 const PublicRoutes = [
   { path: "/", Component: Home },
@@ -18,6 +19,7 @@ const PublicRoutes = [
   { path: "/aboutUs", Component: AboutUs },
   { path: "/contactUs", Component: ContactUs },
   { path: "/login", Component: AuthHome },
+  { path: "/login/user", Component: Login },
   { path: "/signUp", Component: SignUp },
   { path: "/resetPassword", Component: ResetPassword },
   { path: "/insert-token", Component: InsertOtp },

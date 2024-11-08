@@ -64,7 +64,7 @@ const UserDashboard = () => {
       <div className="bg-white ">
         <div className="flex justify-between items-center py-2 lg:w-10/12 w-11/12 mx-auto min-h-[70px]">
           <Link to="/">
-            <img className="w-[80%]" src={logo} alt="logo" />
+            <img className="w-64" src={logo} alt="logo" />
           </Link>
           {/* <UserSideNav /> */}
           <div className="flex items-center gap-2">
