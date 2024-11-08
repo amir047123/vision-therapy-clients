@@ -11,7 +11,7 @@ const InsertOtp = () => {
   const userLoginEmail = JSON.parse(localStorage.getItem("genzam-login-email"));
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/v1/user/by-email?email=${userLoginEmail}`,
+      ` http://localhost:5000/api/v1/user/by-email?email=${userLoginEmail}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,

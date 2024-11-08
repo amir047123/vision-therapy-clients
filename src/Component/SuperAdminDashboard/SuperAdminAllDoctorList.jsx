@@ -18,7 +18,7 @@ const SuperAdminAllDoctorList = () => {
     const fetchDoctors = async () => {
       try {
         const response = await fetch(
-          `http://localhost:3001/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"doctor"}`,
+          ` http://localhost:5000/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"doctor"}`,
           {
             headers: {
               authorization: `Bearer ${localStorage.getItem(
@@ -190,7 +190,7 @@ const SuperAdminAllDoctorList = () => {
                       DeleteHook({
                         refetch,
                         setRefetch,
-                        url: `http://localhost:3001/api/v1/user/${resellerData?._id}`,
+                        url: ` http://localhost:5000/api/v1/user/${resellerData?._id}`,
                       });
                     }}
                     className="border border-secondary py-2 px-3 rounded-md hover:bg-secondary/10 duration-300"

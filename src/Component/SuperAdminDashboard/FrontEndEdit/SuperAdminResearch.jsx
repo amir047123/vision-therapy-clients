@@ -19,7 +19,7 @@ const SuperAdminResearch = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/research/getresearch`)
+    fetch(` http://localhost:5000/api/v1/research/getresearch`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -39,13 +39,13 @@ const SuperAdminResearch = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/research/updateResearch/${formData?._id}`,
+          ` http://localhost:5000/api/v1/research/updateResearch/${formData?._id}`,
           formData
         );
         toast?.success(`Research section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/research/addResearch`,
+          ` http://localhost:5000/api/v1/research/addResearch`,
           formData,
           `Research posted`
         );
@@ -203,7 +203,7 @@ const SuperAdminResearch = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/research/deleteResearch/${research?._id}`,
+                          url: ` http://localhost:5000/api/v1/research/deleteResearch/${research?._id}`,
                         })
                       }
                     >

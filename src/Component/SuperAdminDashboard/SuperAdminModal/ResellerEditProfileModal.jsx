@@ -37,7 +37,7 @@ const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
     const hashedPassword = bcrypt.hashSync(password);
 
     await UpdateHooks(
-      `http://localhost:3001/api/v1/user/${resellerData?._id}`,
+      ` http://localhost:5000/api/v1/user/${resellerData?._id}`,
       {
         password: password ? hashedPassword : resellerData?.password,
         name: name,
@@ -52,7 +52,7 @@ const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
 
   const handelUpdateAccount = async () => {
     await UpdateHooks(
-      `http://localhost:3001/api/v1/user/${resellerData?._id}`,
+      ` http://localhost:5000/api/v1/user/${resellerData?._id}`,
       {
         isActive: !account,
       }

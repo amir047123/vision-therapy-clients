@@ -32,7 +32,7 @@ const SuperAdminDoctorPatientReport = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
+      ` http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
     )
       .then((res) => res.json())
       .then((data) => {

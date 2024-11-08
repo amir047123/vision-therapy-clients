@@ -17,7 +17,7 @@ const SuperAdminProductEdit = () => {
     async function fetchProduct() {
       try {
         const response = await axios.get(
-          `http://localhost:3001/api/v1/products/${id}`
+          ` http://localhost:5000/api/v1/products/${id}`
         );
         setProduct(response.data);
         setLoading(false);
@@ -38,7 +38,7 @@ const SuperAdminProductEdit = () => {
   const handleSaveClick = async () => {
     try {
       // Send a PUT request to update the product data
-      await axios.put(`http://localhost:3001/api/v1/products/${id}`, product);
+      await axios.put(` http://localhost:5000/api/v1/products/${id}`, product);
       toast.success("Product Updated successfully");
 
       // Switch back to view mode after updating

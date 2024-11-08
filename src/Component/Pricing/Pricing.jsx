@@ -15,7 +15,7 @@ const Pricing = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
+      ` http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
         userInfo?._id
       }`
     )
@@ -49,7 +49,7 @@ const Pricing = () => {
       packagePrice,
       packageName,
     };
-    fetch("http://localhost:3001/api/v1/package/addPackage", {
+    fetch(" http://localhost:5000/api/v1/package/addPackage", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

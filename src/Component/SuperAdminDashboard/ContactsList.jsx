@@ -10,7 +10,7 @@ const ContactsList = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3001/api/v1/contacts");
+        const response = await fetch(" http://localhost:5000/api/v1/contacts");
         const data = await response.json();
         setContacts(data);
         setLoading(false);
@@ -33,7 +33,7 @@ const ContactsList = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/contacts/${_id}`,
+        ` http://localhost:5000/api/v1/contacts/${_id}`,
         {
           method: "DELETE",
         }

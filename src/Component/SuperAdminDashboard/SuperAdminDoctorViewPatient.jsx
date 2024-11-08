@@ -32,7 +32,7 @@ const SuperAdminDoctorViewPatient = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/v1/user/${id}`, {
+      .get(` http://localhost:5000/api/v1/user/${id}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
         },
@@ -50,7 +50,7 @@ const SuperAdminDoctorViewPatient = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/v1/user/specific?fieldName=${"referralId"}&&fieldValue=${id}`,
+      ` http://localhost:5000/api/v1/user/specific?fieldName=${"referralId"}&&fieldValue=${id}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,

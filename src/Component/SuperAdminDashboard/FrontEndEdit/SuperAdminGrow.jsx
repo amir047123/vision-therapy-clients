@@ -13,7 +13,7 @@ const SuperAdminGrow = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/grow/getGrow`)
+    fetch(` http://localhost:5000/api/v1/grow/getGrow`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -29,13 +29,13 @@ const SuperAdminGrow = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/grow/updateGrow/${formData?._id}`,
+          ` http://localhost:5000/api/v1/grow/updateGrow/${formData?._id}`,
           { ...formData, img: imageUrl }
         );
         toast?.success(`Grow section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/grow/addGrow`,
+          ` http://localhost:5000/api/v1/grow/addGrow`,
           { ...formData, img: imageUrl },
           `grow data posted`
         );

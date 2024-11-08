@@ -15,7 +15,7 @@ const SuperAdminUserFaq = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/userFaq/getuserFaq`, {
+    fetch(` http://localhost:5000/api/v1/userFaq/getuserFaq`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },
@@ -38,13 +38,13 @@ const SuperAdminUserFaq = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/userFaq/updateUserFaq/${formData?._id}`,
+          ` http://localhost:5000/api/v1/userFaq/updateUserFaq/${formData?._id}`,
           formData
         );
         toast?.success(`UserFaq section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/userFaq/addUserFaq`,
+          ` http://localhost:5000/api/v1/userFaq/addUserFaq`,
           formData,
           `UserFaq posted`
         );
@@ -164,7 +164,7 @@ const SuperAdminUserFaq = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/userFaq/deleteUserFaq/${faq?._id}`,
+                          url: ` http://localhost:5000/api/v1/userFaq/deleteUserFaq/${faq?._id}`,
                         })
                       }
                     >

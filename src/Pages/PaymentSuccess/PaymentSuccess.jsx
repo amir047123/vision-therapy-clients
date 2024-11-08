@@ -8,7 +8,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/v1/package/specific?fieldName=${"tran_id"}&&fieldValue=${tran_id}`
+      ` http://localhost:5000/api/v1/package/specific?fieldName=${"tran_id"}&&fieldValue=${tran_id}`
     ).then((res) => res.json().then((data) => setData(data?.data[0])));
   }, [tran_id]);
 

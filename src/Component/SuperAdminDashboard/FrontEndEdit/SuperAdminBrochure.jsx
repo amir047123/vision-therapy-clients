@@ -19,7 +19,7 @@ const SuperAdminBrochure = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/brochure/getbrochure`)
+    fetch(` http://localhost:5000/api/v1/brochure/getbrochure`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -39,13 +39,13 @@ const SuperAdminBrochure = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/brochure/updateBrochure/${formData?._id}`,
+          ` http://localhost:5000/api/v1/brochure/updateBrochure/${formData?._id}`,
           formData
         );
         toast?.success(`Brochure section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/brochure/addBrochure`,
+          ` http://localhost:5000/api/v1/brochure/addBrochure`,
           formData,
           `Brochure posted`
         );
@@ -203,7 +203,7 @@ const SuperAdminBrochure = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/brochure/deleteBrochure/${brochure?._id}`,
+                          url: ` http://localhost:5000/api/v1/brochure/deleteBrochure/${brochure?._id}`,
                         })
                       }
                     >

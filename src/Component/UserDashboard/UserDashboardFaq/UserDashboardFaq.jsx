@@ -7,7 +7,7 @@ const UserDashboardFaq = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/userFaq/getuserFaq`, {
+    fetch(` http://localhost:5000/api/v1/userFaq/getuserFaq`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },

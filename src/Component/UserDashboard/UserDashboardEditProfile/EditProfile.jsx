@@ -20,7 +20,7 @@ const EditProfile = () => {
   const fetchUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/user/${userInfo._id}`,
+        ` http://localhost:5000/api/v1/user/${userInfo._id}`,
         {
           headers: {
             authorization: `Bearer ${localStorage.getItem(
@@ -56,7 +56,7 @@ const EditProfile = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/user/${userInfo._id}`,
+        ` http://localhost:5000/api/v1/user/${userInfo._id}`,
         {
           method: "PATCH",
           headers: {

@@ -13,7 +13,7 @@ function SuperAdminTeamForm() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch("http://localhost:3001/api/v1/teams");
+        const response = await fetch(" http://localhost:5000/api/v1/teams");
         const data = await response.json();
         setTeams(data.data);
       } catch (error) {
@@ -46,12 +46,12 @@ function SuperAdminTeamForm() {
     try {
       if (teamData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/teams/${teamData?._id}`,
+          ` http://localhost:5000/api/v1/teams/${teamData?._id}`,
           { ...teamData, imageUrl: imageUrl ? imageUrl : teamData?.imageUrl }
         );
         toast?.success(`Grow section Updated !`);
       } else {
-        const response = await fetch("http://localhost:3001/api/v1/teams", {
+        const response = await fetch(" http://localhost:5000/api/v1/teams", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -192,7 +192,7 @@ function SuperAdminTeamForm() {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/teams/${team?._id}`,
+                          url: ` http://localhost:5000/api/v1/teams/${team?._id}`,
                         })
                       }
                     >

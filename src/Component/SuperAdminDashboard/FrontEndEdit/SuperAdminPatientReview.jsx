@@ -17,7 +17,7 @@ const SuperAdminPatientReview = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/patientReview/getpatientReview`)
+    fetch(` http://localhost:5000/api/v1/patientReview/getpatientReview`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -37,13 +37,13 @@ const SuperAdminPatientReview = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/patientReview/updatePatientReview/${formData?._id}`,
+          ` http://localhost:5000/api/v1/patientReview/updatePatientReview/${formData?._id}`,
           formData
         );
         toast?.success(`PatientReview section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/patientReview/addPatientReview`,
+          ` http://localhost:5000/api/v1/patientReview/addPatientReview`,
           formData,
           `PatientReview posted`
         );
@@ -192,7 +192,7 @@ const SuperAdminPatientReview = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/patientReview/deletePatientReview/${patientReview?._id}`,
+                          url: ` http://localhost:5000/api/v1/patientReview/deletePatientReview/${patientReview?._id}`,
                         })
                       }
                     >

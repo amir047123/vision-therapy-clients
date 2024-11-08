@@ -17,7 +17,7 @@ const SuperAdminAddOrderDetails = () => {
   const fetchOrderDetails = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3001/api/v1/orderDetails/getOrderDetails"
+        " http://localhost:5000/api/v1/orderDetails/getOrderDetails"
       );
 
       const responseData = await response.json();
@@ -49,7 +49,7 @@ const SuperAdminAddOrderDetails = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:3001/api/v1/orderDetails/addOrderDetails",
+        " http://localhost:5000/api/v1/orderDetails/addOrderDetails",
         {
           method: "POST",
           headers: {
@@ -86,7 +86,7 @@ const SuperAdminAddOrderDetails = () => {
   const handleDelete = async (orderId) => {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/v1/orderDetails/deleteOrderDetails/${orderId}`,
+        ` http://localhost:5000/api/v1/orderDetails/deleteOrderDetails/${orderId}`,
         {
           method: "DELETE",
         }

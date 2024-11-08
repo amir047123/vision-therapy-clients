@@ -16,7 +16,7 @@ const SuperAdminFooter = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/footer/getFooter`)
+    fetch(` http://localhost:5000/api/v1/footer/getFooter`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -32,13 +32,13 @@ const SuperAdminFooter = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/footer/updateFooter/${formData?._id}`,
+          ` http://localhost:5000/api/v1/footer/updateFooter/${formData?._id}`,
           formData
         );
         toast?.success(`Footer section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/footer/addFooter`,
+          ` http://localhost:5000/api/v1/footer/addFooter`,
           formData,
           `Footer data posted`
         );

@@ -17,7 +17,7 @@ const SuperAdminPatientEditProfile = () => {
   const [selectedDiv, setSelectedDiv] = useState(0); // Default to 0 for 'General'
 
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/user/${id}`, {
+    fetch(` http://localhost:5000/api/v1/user/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },
@@ -27,7 +27,7 @@ const SuperAdminPatientEditProfile = () => {
   }, [id]);
   useEffect(() => {
     fetch(
-      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
+      ` http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
     )
       .then((res) => res.json())
       .then((data) => {

@@ -17,7 +17,7 @@ function SuperAdminProductTable() {
     async function fetchProducts() {
       try {
         const response = await axios.get(
-          "http://localhost:3001/api/v1/products"
+          " http://localhost:5000/api/v1/products"
         );
         setProducts(response.data);
         setLoading(false);
@@ -146,7 +146,7 @@ function SuperAdminProductTable() {
                     DeleteHook({
                       refetch,
                       setRefetch,
-                      url: `http://localhost:3001/api/v1/products/${product?._id}`,
+                      url: ` http://localhost:5000/api/v1/products/${product?._id}`,
                     });
                   }}
                   className="border border-secondary py-2 px-3 rounded-md hover:bg-secondary/10 duration-300"

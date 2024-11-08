@@ -13,7 +13,7 @@ const SuperAdminHero = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/hero/getHero`)
+    fetch(` http://localhost:5000/api/v1/hero/getHero`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -29,13 +29,13 @@ const SuperAdminHero = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/hero/updateHero/${formData?._id}`,
+          ` http://localhost:5000/api/v1/hero/updateHero/${formData?._id}`,
           formData
         );
         toast?.success(`Hero section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/hero/addHero`,
+          ` http://localhost:5000/api/v1/hero/addHero`,
           formData,
           `hero data posted`
         );

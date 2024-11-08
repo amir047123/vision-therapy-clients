@@ -17,7 +17,7 @@ const SuperAdminDoctorReview = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:3001/api/v1/lecture/getlecture`)
+    fetch(` http://localhost:5000/api/v1/lecture/getlecture`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -37,13 +37,13 @@ const SuperAdminDoctorReview = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:3001/api/v1/lecture/updateLecture/${formData?._id}`,
+          ` http://localhost:5000/api/v1/lecture/updateLecture/${formData?._id}`,
           formData
         );
         toast?.success(`Lecture section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:3001/api/v1/lecture/addLecture`,
+          ` http://localhost:5000/api/v1/lecture/addLecture`,
           formData,
           `Lecture posted`
         );
@@ -192,7 +192,7 @@ const SuperAdminDoctorReview = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:3001/api/v1/lecture/deleteLecture/${lecture?._id}`,
+                          url: ` http://localhost:5000/api/v1/lecture/deleteLecture/${lecture?._id}`,
                         })
                       }
                     >
