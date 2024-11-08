@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import moment from "moment";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import CorrectChoice from "../../Assets/final new sound/correct-2-46134.mp3";
 import incorrectSound from "../../Assets/final new sound/invalid-selection-39351.mp3";
-import moment from "moment";
 import { server_url } from "../../Config/API";
 import AuthUser from "../../Hooks/authUser";
 import PostHooks from "../../Hooks/PostHooks";
 import UpdateHooks from "../../Hooks/UpdateHooks";
-import { useNavigate } from "react-router";
-import { useCallback } from "react";
-import { useRef } from "react";
 
 function SmoothMovement() {
   const [movingLetter, setMovingLetter] = useState(generateRandomLetter());
@@ -242,7 +240,7 @@ function SmoothMovement() {
   }, [movingLetter, gameActive]);
 
   const textStyle = {
-    fontSize: "85px", // Change the font size to your desired value, e.g., "48px"
+    fontSize: "85px",
   };
 
   return (

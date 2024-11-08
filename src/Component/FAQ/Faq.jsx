@@ -7,10 +7,10 @@ const Faq = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/userFaq/getuserFaq`,{
+    fetch(`http://localhost:3001/api/v1/userFaq/getuserFaq`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-      }
+      },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -31,7 +31,7 @@ const Faq = () => {
             height="416"
             src="https://www.youtube.com/embed/Xjt-JXWk0K4?si=MJ15O9z2vCmKoBA7"
             title="YouTube video player"
-            frameborder="0"
+            frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>

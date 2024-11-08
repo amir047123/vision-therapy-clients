@@ -1,7 +1,7 @@
+import { Icon } from "@iconify/react";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import axios from "axios";
-import { Icon } from "@iconify/react";
 import Loading from "../../Shared/Loading";
 
 const SuperAdminDoctorViewPatient = () => {
@@ -32,10 +32,10 @@ const SuperAdminDoctorViewPatient = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/v1/user/${id}`,{
+      .get(`http://localhost:3001/api/v1/user/${id}`, {
         headers: {
           authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-        }
+        },
       })
       .then((response) => {
         // Adjust the setUserData call to consider the response structure
@@ -50,10 +50,11 @@ const SuperAdminDoctorViewPatient = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/v1/user/specific?fieldName=${"referralId"}&&fieldValue=${id}`,{
+      `http://localhost:3001/api/v1/user/specific?fieldName=${"referralId"}&&fieldValue=${id}`,
+      {
         headers: {
           authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-        }
+        },
       }
     ).then((res) =>
       res.json().then((data) => {
@@ -112,7 +113,7 @@ const SuperAdminDoctorViewPatient = () => {
         <div className="w-full overflow-x-auto mt-10">
           <table
             className="w-full text-left rounded w-overflow-x-auto "
-            cellspacing="0"
+            cellSpacing="0"
           >
             <tbody>
               <tr>

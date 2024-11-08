@@ -1,12 +1,14 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import hitSound from "../../../Assets/final new sound/correct-2-46134.mp3";
-import userHitSound from "../../../Assets/final new sound/correct-2-46134.mp3";
+import { useCallback, useEffect, useRef, useState } from "react";
+import {
+  default as hitSound,
+  default as userHitSound,
+} from "../../../Assets/final new sound/correct-2-46134.mp3";
 import computerHitSound from "../../../Assets/new pinpong sound/comScore.mp3.mp3";
 
-import { useNavigate } from "react-router";
-import AuthUser from "../../../Hooks/authUser";
 import moment from "moment";
+import { useNavigate } from "react-router";
 import { server_url } from "../../../Config/API";
+import AuthUser from "../../../Hooks/authUser";
 import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
 const PingPong = () => {
@@ -106,7 +108,6 @@ const PingPong = () => {
     // select canvas element
     const canvas = document.getElementById("pong");
 
-    // getContext of canvas = methods and properties to draw and do a lot of thing to the canvas
     const ctx = canvas.getContext("2d");
     function game() {
       update();
@@ -118,17 +119,13 @@ const PingPong = () => {
     // load sounds
     let hit = new Audio(hitSound);
 
-    // Adjust canvas dimensions to inner width and inner height
     function adjustCanvasDimensions() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
-    // Call adjustCanvasDimensions initially and whenever the window is resized
     adjustCanvasDimensions();
     window.addEventListener("resize", adjustCanvasDimensions);
-
-    // Full screen when the game starts
 
     // Ball object
     const ball = {
@@ -144,7 +141,7 @@ const PingPong = () => {
     // User Paddle
     const user = {
       x: 0, // left side of canvas
-      y: (canvas.height - 100) / 2, // -100 the height of paddle
+      y: (canvas.height - 100) / 2,
       width: 10,
       height: 100,
       score: 0,
@@ -153,8 +150,8 @@ const PingPong = () => {
 
     // COM Paddle
     const com = {
-      x: canvas.width - 10, // - width of paddle
-      y: (canvas.height - 100) / 2, // -100 the height of paddle
+      x: canvas.width - 10,
+      y: (canvas.height - 100) / 2,
       width: 10,
       height: 100,
       score: 0,
@@ -170,13 +167,11 @@ const PingPong = () => {
       color: "WHITE",
     };
 
-    // draw a rectangle, will be used to draw paddles
     function drawRect(x, y, w, h, color) {
       ctx.fillStyle = color;
       ctx.fillRect(x, y, w, h);
     }
 
-    // draw circle, will be used to draw the ball
     function drawArc(x, y, r, color) {
       ctx.fillStyle = color;
       ctx.beginPath();
@@ -255,7 +250,6 @@ const PingPong = () => {
 
     // update function, the function that does all calculations
     function update() {
-      // change the score of players, if the ball goes to the left "ball.x<0" computer win, else if "ball.x > canvas.width" the user win
       if (ball.x - ball.radius < 0) {
         com.score++;
         setScore((prevCount) => prevCount + 1);
@@ -338,7 +332,7 @@ const PingPong = () => {
     }
 
     // Adjust the number of frames per second to control the speed
-    const framePerSecond = 100; // Adjust this value as needed
+    const framePerSecond = 100;
     let loop;
 
     const countdownInterval = setInterval(() => {
@@ -346,10 +340,10 @@ const PingPong = () => {
     }, 1000);
     const startGame = () => {
       loop = setInterval(game, 1000 / framePerSecond);
-      const gameDuration = timeLeft * 1000; // Convert seconds to milliseconds
+      const gameDuration = timeLeft * 1000;
       setTimeout(() => {
         clearInterval(countdownInterval);
-        clearInterval(loop); // Clear the interval to stop the game
+        clearInterval(loop);
       }, gameDuration);
     };
 
@@ -357,7 +351,7 @@ const PingPong = () => {
 
     return () => {
       clearInterval(countdownInterval);
-      clearInterval(loop); // Clear the interval when the component unmounts
+      clearInterval(loop);
     };
   }, []);
   // Your game logic and canvas setup here
@@ -381,7 +375,7 @@ const PingPong = () => {
       if (event.keyCode === 27 && isFullScreen) {
         // Esc key and in full screen mode
         insertFunction();
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }

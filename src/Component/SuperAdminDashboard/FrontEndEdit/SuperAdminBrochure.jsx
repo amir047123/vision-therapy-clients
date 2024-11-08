@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
-import DeleteHook from "../../../Hooks/DeleteHook";
 import { Icon } from "@iconify/react";
-import UpdateHooks from "../../../Hooks/UpdateHooks";
 import JoditEditor from "jodit-react";
+import React, { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
+import DeleteHook from "../../../Hooks/DeleteHook";
+import PostHooks from "../../../Hooks/PostHooks";
+import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminBrochure = () => {
   const [refetch, setRefetch] = useState(false);
@@ -20,7 +19,7 @@ const SuperAdminBrochure = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/brochure/getbrochure`)
+    fetch(`http://localhost:3001/api/v1/brochure/getbrochure`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -40,13 +39,13 @@ const SuperAdminBrochure = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/brochure/updateBrochure/${formData?._id}`,
+          `http://localhost:3001/api/v1/brochure/updateBrochure/${formData?._id}`,
           formData
         );
         toast?.success(`Brochure section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/brochure/addBrochure`,
+          `http://localhost:3001/api/v1/brochure/addBrochure`,
           formData,
           `Brochure posted`
         );
@@ -161,7 +160,7 @@ const SuperAdminBrochure = () => {
       <div className=" my-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <thead>
             <tr className="text-center">
@@ -204,7 +203,7 @@ const SuperAdminBrochure = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:5000/api/v1/brochure/deleteBrochure/${brochure?._id}`,
+                          url: `http://localhost:3001/api/v1/brochure/deleteBrochure/${brochure?._id}`,
                         })
                       }
                     >

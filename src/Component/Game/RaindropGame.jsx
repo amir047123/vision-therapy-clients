@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import Sound from "../../Assets/final new sound/correct-2-46134.mp3";
-import { useNavigate } from "react-router";
-import AuthUser from "../../Hooks/authUser";
 import moment from "moment";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import Sound from "../../Assets/final new sound/correct-2-46134.mp3";
 import { server_url } from "../../Config/API";
+import AuthUser from "../../Hooks/authUser";
 import PostHooks from "../../Hooks/PostHooks";
 import UpdateHooks from "../../Hooks/UpdateHooks";
 
@@ -37,7 +37,8 @@ const RaindropGame = () => {
 
   const fetchFunction = async () => {
     await fetch(
-      `${server_url}/rainDrop/specific?fieldName=${"userId"}&&fieldValue=${userInfo?._id
+      `${server_url}/rainDrop/specific?fieldName=${"userId"}&&fieldValue=${
+        userInfo?._id
       }&&fieldName2=${"date"}&&fieldValue2=${date}&&fieldName3=${"gameName"}&&fieldValue3=${"Rain Drop Monocular"}`
     )
       .then((res) => res.json())
@@ -100,7 +101,7 @@ const RaindropGame = () => {
     const handleMouseMove = (event) => {
       // Update paddle position based on mouse movement
       const paddleWidth = paddleRef.current.offsetWidth;
-      const newPaddleX = event.clientX - paddleWidth / 2; // Adjust for paddle width
+      const newPaddleX = event.clientX - paddleWidth / 2;
       setPaddlePosition(newPaddleX);
     };
 
@@ -226,7 +227,7 @@ const RaindropGame = () => {
         insertFunction();
         // exist btn
         // Esc key and in full screen mode
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
       }
     };

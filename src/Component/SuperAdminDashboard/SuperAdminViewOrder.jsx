@@ -1,6 +1,6 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 const SuperAdminViewOrder = () => {
@@ -17,7 +17,7 @@ const SuperAdminViewOrder = () => {
       try {
         // Make an HTTP GET request to your API endpoint to fetch the order by ID
         const response = await axios.get(
-          `http://localhost:5000/api/v1/orders/${id}`
+          `http://localhost:3001/api/v1/orders/${id}`
         );
 
         // Update the state with the received order data
@@ -36,13 +36,13 @@ const SuperAdminViewOrder = () => {
   const handleStatusChange = async () => {
     try {
       // Make an HTTP PUT request to update the order status
-      await axios.put(`http://localhost:5000/api/v1/orders/${id}`, {
+      await axios.put(`http://localhost:3001/api/v1/orders/${id}`, {
         status: selectedStatus,
       });
 
       // Refresh the order data
       const response = await axios.get(
-        `http://localhost:5000/api/v1/orders/${id}`
+        `http://localhost:3001/api/v1/orders/${id}`
       );
       setOrder(response.data);
 

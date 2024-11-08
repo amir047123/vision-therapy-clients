@@ -1,21 +1,17 @@
-// Import necessary components and assets
-import React, { useState, useEffect } from "react";
-import scoreIncreaseSound from "../../Assets/sound/smooth movement/correct-choice-43861.mp3"; // Replace with your file path
-import { useNavigate } from "react-router";
-import AuthUser from "../../Hooks/authUser";
-import { useRef } from "react";
 import moment from "moment";
-import PostHooks from "../../Hooks/PostHooks";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import scoreIncreaseSound from "../../Assets/sound/smooth movement/correct-choice-43861.mp3";
 import { server_url } from "../../Config/API";
+import AuthUser from "../../Hooks/authUser";
+import PostHooks from "../../Hooks/PostHooks";
 import UpdateHooks from "../../Hooks/UpdateHooks";
-import { useCallback } from "react";
 
-// Define the main component
 const ColorTrap = () => {
   // State variables
-  const [gameStarted, setGameStarted] = useState(true); // Track if the game has started
-  const [objectPosition, setObjectPosition] = useState({ x: 0, y: 0 }); // Track the position of the object
-  const [circleSize, setCircleSize] = useState(100); // Track the size of the circle
+  const [gameStarted, setGameStarted] = useState(true);
+  const [objectPosition, setObjectPosition] = useState({ x: 0, y: 0 });
+  const [circleSize, setCircleSize] = useState(100);
   const navigate = useNavigate();
   // Full screen event listener
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -109,7 +105,7 @@ const ColorTrap = () => {
     const randomX = Math.random() * window.innerWidth;
     const randomY = Math.random() * window.innerHeight;
     setObjectPosition({ x: randomX, y: randomY });
-    setCircleSize(100); // Reset circle size for each movement
+    setCircleSize(100);
   };
 
   // Function to handle tapping the circle
@@ -134,7 +130,7 @@ const ColorTrap = () => {
       setTimeout(() => {
         clearInterval(circleDecreaseInterval);
         moveObjectRandomly();
-      }, 50); // 1 second interval
+      }, 50);
     }
   };
   const handleGameOver = () => {
@@ -188,7 +184,7 @@ const ColorTrap = () => {
       if (event.keyCode === 27 && isFullScreen) {
         // Esc key and in full screen mode
         insertFunction();
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }
@@ -230,7 +226,7 @@ const ColorTrap = () => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              transition: "width 0.3s ease-out, height 0.3s ease-out", // Smooth resizing transition
+              transition: "width 0.3s ease-out, height 0.3s ease-out",
             }}
           >
             <div

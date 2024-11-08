@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
-import DeleteHook from "../../../Hooks/DeleteHook";
 import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import DeleteHook from "../../../Hooks/DeleteHook";
+import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminDoctorFaq = () => {
@@ -16,7 +15,7 @@ const SuperAdminDoctorFaq = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/doctorFaq/getdoctorFaq`)
+    fetch(`http://localhost:3001/api/v1/doctorFaq/getdoctorFaq`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -35,13 +34,13 @@ const SuperAdminDoctorFaq = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/doctorFaq/updateDoctorFaq/${formData?._id}`,
+          `http://localhost:3001/api/v1/doctorFaq/updateDoctorFaq/${formData?._id}`,
           formData
         );
         toast?.success(`DoctorFaq section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/doctorFaq/addDoctorFaq`,
+          `http://localhost:3001/api/v1/doctorFaq/addDoctorFaq`,
           formData,
           `DoctorFaq posted`
         );
@@ -127,7 +126,7 @@ const SuperAdminDoctorFaq = () => {
       <div className=" my-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <thead>
             <tr className="text-center">
@@ -161,7 +160,7 @@ const SuperAdminDoctorFaq = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:5000/api/v1/doctorFaq/deleteDoctorFaq/${faq?._id}`,
+                          url: `http://localhost:3001/api/v1/doctorFaq/deleteDoctorFaq/${faq?._id}`,
                         })
                       }
                     >

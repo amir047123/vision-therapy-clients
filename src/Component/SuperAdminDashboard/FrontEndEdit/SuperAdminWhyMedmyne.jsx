@@ -1,9 +1,7 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const SuperAdminWhyMedmyne = () => {
   const [formData, setFormData] = useState({
@@ -25,7 +23,7 @@ const SuperAdminWhyMedmyne = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/whyMedmyne/getWhyMedmyne`)
+    fetch(`http://localhost:3001/api/v1/whyMedmyne/getWhyMedmyne`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -41,13 +39,13 @@ const SuperAdminWhyMedmyne = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/whyMedmyne/updateWhyMedmyne/${formData?._id}`,
+          `http://localhost:3001/api/v1/whyMedmyne/updateWhyMedmyne/${formData?._id}`,
           formData
         );
         toast?.success(`Hero section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/whyMedmyne/addWhyMedmyne`,
+          `http://localhost:3001/api/v1/whyMedmyne/addWhyMedmyne`,
           formData,
           `whyMedmyne data posted`
         );

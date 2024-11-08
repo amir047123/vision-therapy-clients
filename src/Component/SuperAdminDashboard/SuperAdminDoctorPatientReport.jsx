@@ -1,15 +1,13 @@
 import moment from "moment/moment";
-import React, { useState } from "react";
-import "./SuperAdminDoctorPatientReport.css";
+import React, { useEffect, useState } from "react";
 import { server_url } from "../../Config/API";
-import { useEffect } from "react";
+import "./SuperAdminDoctorPatientReport.css";
 
 import { useParams } from "react-router";
 import Loading from "../../Shared/Loading";
+import SuperAdminDashboardDataTable from "./SuperAdminDashboardDataTable";
 import SuperAdminDashboardDayGrid from "./SuperAdminDashboardDayGrid";
 import SuperAdminDashboardProgressTable from "./SuperAdminDashboardProgressTable";
-import SuperAdminDashboardDataTable from "./SuperAdminDashboardDataTable";
-
 
 const SuperAdminDoctorPatientReport = () => {
   const [date, setDate] = useState(moment().format("YYYY-MM-D"));
@@ -34,14 +32,13 @@ const SuperAdminDoctorPatientReport = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
     )
       .then((res) => res.json())
       .then((data) => {
         if (data?.data?.length) {
           setPackages(data?.data[0]);
           setLoading(false);
-          
         }
         setLoading(false);
       });
@@ -163,7 +160,8 @@ const SuperAdminDoctorPatientReport = () => {
             </div>
             <div className="days gap-[1px] md:gap-[2px]">
               {[...days]?.reverse()?.map((day, i) => (
-                <SuperAdminDashboardDayGrid key={i+1}
+                <SuperAdminDashboardDayGrid
+                  key={i + 1}
                   setDate={setDate}
                   date={date}
                   allGameData={allGameData}
@@ -179,7 +177,7 @@ const SuperAdminDoctorPatientReport = () => {
       <div className="w-full overflow-x-auto">
         <table
           className="w-full text-left border-collapse rounded w-overflow-x-auto bg-white mt-10 "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr className="border-b border-slate-300">
@@ -202,8 +200,8 @@ const SuperAdminDoctorPatientReport = () => {
                 Score
               </th>
             </tr>
-            {filterSelected?.map((game,i) => (
-              <SuperAdminDashboardDataTable key={i+1} game={game} />
+            {filterSelected?.map((game, i) => (
+              <SuperAdminDashboardDataTable key={i + 1} game={game} />
             ))}
           </tbody>
         </table>
@@ -212,7 +210,7 @@ const SuperAdminDoctorPatientReport = () => {
       <div className="w-full overflow-x-auto">
         <table
           className="w-full text-left border-collapse rounded w-overflow-x-auto bg-white mt-10 "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr className="border-b border-slate-300">
@@ -235,8 +233,8 @@ const SuperAdminDoctorPatientReport = () => {
                 Progress
               </th>
             </tr>
-            {filterSelected?.map((game,i) => (
-              <SuperAdminDashboardProgressTable key={i+1} game={game} />
+            {filterSelected?.map((game, i) => (
+              <SuperAdminDashboardProgressTable key={i + 1} game={game} />
             ))}
           </tbody>
         </table>

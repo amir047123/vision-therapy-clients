@@ -1,8 +1,8 @@
 import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
-import AuthUser from "../../Hooks/authUser";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
+import AuthUser from "../../Hooks/authUser";
 
 const Pricing = () => {
   const issueDate = moment().format("YYYY-MM-DD");
@@ -15,7 +15,7 @@ const Pricing = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
         userInfo?._id
       }`
     )
@@ -49,7 +49,7 @@ const Pricing = () => {
       packagePrice,
       packageName,
     };
-    fetch("http://localhost:5000/api/v1/package/addPackage", {
+    fetch("http://localhost:3001/api/v1/package/addPackage", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -168,7 +168,7 @@ const Pricing = () => {
                           <svg
                             width="16"
                             height="12"
-                            viewbox="0 0 16 12"
+                            viewBox="0 0 16 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -272,7 +272,7 @@ const Pricing = () => {
                           <svg
                             width="16"
                             height="12"
-                            viewbox="0 0 16 12"
+                            viewBox="0 0 16 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -374,7 +374,7 @@ const Pricing = () => {
                           <svg
                             width="16"
                             height="12"
-                            viewbox="0 0 16 12"
+                            viewBox="0 0 16 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >
@@ -479,7 +479,7 @@ const Pricing = () => {
                           <svg
                             width="16"
                             height="12"
-                            viewbox="0 0 16 12"
+                            viewBox="0 0 16 12"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
                           >

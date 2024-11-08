@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
-import { singleImageUpload } from "../../../Hooks/ImageUpload";
-import DeleteHook from "../../../Hooks/DeleteHook";
 import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import DeleteHook from "../../../Hooks/DeleteHook";
+import { singleImageUpload } from "../../../Hooks/ImageUpload";
+import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminDoctorReview = () => {
@@ -19,7 +18,7 @@ const SuperAdminDoctorReview = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/doctorReview/getdoctorReview`)
+    fetch(`http://localhost:3001/api/v1/doctorReview/getdoctorReview`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -39,13 +38,13 @@ const SuperAdminDoctorReview = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/doctorReview/updateDoctorReview/${formData?._id}`,
+          `http://localhost:3001/api/v1/doctorReview/updateDoctorReview/${formData?._id}`,
           { ...formData, doctorImg: imageUrl }
         );
         toast?.success(`Doctor section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/doctorReview/adddoctorReview`,
+          `http://localhost:3001/api/v1/doctorReview/adddoctorReview`,
           { ...formData, doctorImg: imageUrl },
           `Doctor Review posted`
         );
@@ -164,7 +163,7 @@ const SuperAdminDoctorReview = () => {
       <div className=" my-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <thead>
             <tr className="text-center">
@@ -209,7 +208,7 @@ const SuperAdminDoctorReview = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:5000/api/v1/doctorReview/deleteDoctorReview/${doctor?._id}`,
+                          url: `http://localhost:3001/api/v1/doctorReview/deleteDoctorReview/${doctor?._id}`,
                         });
                       }}
                     >

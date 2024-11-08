@@ -1,13 +1,11 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import VideoCard from "./VideoCard";
 
 const Video = () => {
   const [lectures, setLectures] = useState([]);
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/lecture/getlecture`)
+    fetch(`http://localhost:3001/api/v1/lecture/getlecture`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {

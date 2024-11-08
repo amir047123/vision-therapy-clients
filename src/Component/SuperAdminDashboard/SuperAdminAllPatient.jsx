@@ -1,9 +1,8 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 
-import ResellerEditProfileModal from "./SuperAdminModal/ResellerEditProfileModal";
-import DeleteConfirmationModal from "./SuperAdminModal/DeleteConfirmationModal";
 import DeleteHook from "../../Hooks/DeleteHook";
+import ResellerEditProfileModal from "./SuperAdminModal/ResellerEditProfileModal";
 const SuperAdminAllPatient = () => {
   const [reseller, setReseller] = useState([]);
   const [filteredResellers, setFilteredResellers] = useState([]);
@@ -17,10 +16,13 @@ const SuperAdminAllPatient = () => {
     const fetchDoctors = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"user"}`,{
+          `http://localhost:3001/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"user"}`,
+          {
             headers: {
-              authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-            }
+              authorization: `Bearer ${localStorage.getItem(
+                "visionAccessToken"
+              )}`,
+            },
           }
         );
         const data = await response.json();
@@ -110,7 +112,7 @@ const SuperAdminAllPatient = () => {
       <div className="w-full overflow-x-auto mt-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr>
@@ -183,7 +185,7 @@ const SuperAdminAllPatient = () => {
                       DeleteHook({
                         refetch,
                         setRefetch,
-                        url: `http://localhost:5000/api/v1/user/${resellerData?._id}`,
+                        url: `http://localhost:3001/api/v1/user/${resellerData?._id}`,
                       });
                     }}
                     className="border border-secondary py-2 px-3 rounded-md hover:bg-secondary/10 duration-300"

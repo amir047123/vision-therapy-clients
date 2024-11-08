@@ -1,8 +1,7 @@
 import { Icon } from "@iconify/react";
 import axios from "axios";
 import Lottie from "lottie-react";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 import contact from "../../Assets/animation/contact.json";
 
@@ -26,7 +25,7 @@ const ContactUs = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/contacts",
+        "http://localhost:3001/api/v1/contacts",
         formData
       );
       if (response.status === 200) {
@@ -57,7 +56,7 @@ const ContactUs = () => {
               <div className="flex gap-5  justify-start items-start">
                 <div>
                   <label
-                    for="input-6"
+                    htmlFor="input-6"
                     className="block text-sm font-medium text-black"
                   >
                     Name
@@ -78,7 +77,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <label
-                    for="input-6"
+                    htmlFor="input-6"
                     className="block text-sm font-medium text-black"
                   >
                     Phone Number
@@ -101,7 +100,7 @@ const ContactUs = () => {
               <div className="flex mt-5 gap-5  justify-start items-start">
                 <div>
                   <label
-                    for="input-6"
+                    htmlFor="input-6"
                     className="block text-sm font-medium text-black"
                   >
                     E-mail
@@ -122,7 +121,7 @@ const ContactUs = () => {
                 </div>
                 <div>
                   <label
-                    for="input-6"
+                    htmlFor="input-6"
                     className="block text-sm font-medium text-black"
                   >
                     City

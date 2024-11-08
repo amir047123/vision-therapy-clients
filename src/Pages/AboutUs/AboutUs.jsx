@@ -27,7 +27,7 @@ const AboutUs = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/v1/contacts",
+        "http://localhost:3001/api/v1/contacts",
         formData
       );
       if (response.status === 200) {

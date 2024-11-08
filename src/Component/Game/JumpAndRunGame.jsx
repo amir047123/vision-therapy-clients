@@ -1,24 +1,23 @@
-import React, { useState, useEffect, useRef } from "react";
+import moment from "moment";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router";
 import hitSound from "../../Assets/final new sound/invalid-selection-39351.mp3";
-import AuthUser from "../../Hooks/authUser";
-import moment from "moment";
 import { server_url } from "../../Config/API";
-import { useCallback } from "react";
-import UpdateHooks from "../../Hooks/UpdateHooks";
+import AuthUser from "../../Hooks/authUser";
 import PostHooks from "../../Hooks/PostHooks";
+import UpdateHooks from "../../Hooks/UpdateHooks";
 const JumpAndRunGame = () => {
   const [isRunning, setIsRunning] = useState(true);
   const [positionY, setPositionY] = useState(window.innerHeight / 2);
   const [velocityY, setVelocityY] = useState(0);
   const [obstacles, setObstacles] = useState([]);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(300); // 5 minutes in 55ms ticks
+  const [timeLeft, setTimeLeft] = useState(300);
   const [isGameOver, setIsGameOver] = useState(false);
   const gameRef = useRef(null);
   const deviceWidth = window.innerWidth;
   const deviceHeight = window.innerHeight;
-  const gameContainerRef = useRef(null); // New ref
+  const gameContainerRef = useRef(null);
   const navigate = useNavigate();
   // Full screen event listener
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -33,7 +32,7 @@ const JumpAndRunGame = () => {
   const timeRef = useRef(null);
   scoreRef.current = score;
   timeRef.current = timeLeft;
-  const squareHeight = [20, 50, 80, 20, 70, 130, 90, 80, 100, 115];
+  // const squareHeight = [20, 50, 80, 20, 70, 130, 90, 80, 100, 115];
 
   const fetchFunction = async () => {
     await fetch(
@@ -122,12 +121,12 @@ const JumpAndRunGame = () => {
     new (window.AudioContext || window.webkitAudioContext)()
   ); // Create an audio context
   const collisionSoundRef = useRef(null);
-  const isCollisionSoundLoadedRef = useRef(false); // Keep track of whether the collision sound is loaded
+  const isCollisionSoundLoadedRef = useRef(false);
 
   // Function to play the hit sound
   const loadAudio = async () => {
     try {
-      const response = await fetch(hitSound); // Replace with the actual path to your sound file
+      const response = await fetch(hitSound);
       const audioData = await response.arrayBuffer();
       const audioBuffer = await audioContextRef.current.decodeAudioData(
         audioData
@@ -150,7 +149,7 @@ const JumpAndRunGame = () => {
 
   useEffect(() => {
     loadAudio();
-    gameContainerRef.current.focus(); // Set focus after mounting
+    gameContainerRef.current.focus();
 
     const handleKeyDown = (event) => {
       if (event.keyCode === 32) {
@@ -177,8 +176,8 @@ const JumpAndRunGame = () => {
   }, []);
 
   useEffect(() => {
-    const MIN_GAP = 100;
-    const MAX_GAP = 250;
+    // const MIN_GAP = 100;
+    // const MAX_GAP = 250;
 
     const gameLoop = setInterval(() => {
       if (isRunning && !isGameOver) {
@@ -203,7 +202,7 @@ const JumpAndRunGame = () => {
           newObstacles.push({
             x: deviceWidth,
             y: deviceHeight / 2,
-            z: 20 + Math.floor(Math.random() * 80), // Random obstacle height
+            z: 20 + Math.floor(Math.random() * 80),
           });
         }
         // Update collision detection logic
@@ -254,7 +253,7 @@ const JumpAndRunGame = () => {
     const handleKeyPress = async (event) => {
       if (event.keyCode === 27 && isFullScreen) {
         insertFunction();
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }
@@ -274,7 +273,7 @@ const JumpAndRunGame = () => {
       className="w-full h-screen inset-0 fixed bg-[#f7f7f7] "
       tabIndex="0"
       onKeyDown={jump}
-      ref={gameContainerRef} // attach the ref here
+      ref={gameContainerRef}
     >
       <>
         <div

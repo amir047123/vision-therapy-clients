@@ -1,8 +1,7 @@
-
 import { Icon } from "@iconify/react";
-import  { useEffect, useState } from "react";
-import { useParams } from "react-router";
 import moment from "moment";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 
 const SuperAdminPatientEditProfile = () => {
   const { id } = useParams(); // Get the patientId from the URL
@@ -18,7 +17,7 @@ const SuperAdminPatientEditProfile = () => {
   const [selectedDiv, setSelectedDiv] = useState(0); // Default to 0 for 'General'
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/user/${id}`, {
+    fetch(`http://localhost:3001/api/v1/user/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
       },
@@ -28,7 +27,7 @@ const SuperAdminPatientEditProfile = () => {
   }, [id]);
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${id}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -54,7 +53,6 @@ const SuperAdminPatientEditProfile = () => {
           <h1 className="ml-2">License</h1>
         </button>
       </div>
-
     </div>
   );
 };

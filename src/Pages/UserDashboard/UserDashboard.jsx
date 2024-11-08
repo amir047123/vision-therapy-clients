@@ -1,14 +1,12 @@
-import React from "react";
-import UserDashboardNav from "./UserDashboardNav";
-import { Link, Outlet, useNavigate } from "react-router-dom";
-import logo from "../../Assets/logo.png";
-import UserDashboardHeader from "./UserDashboardHeader";
-import AuthUser from "../../Hooks/authUser";
-import { useEffect } from "react";
 import moment from "moment";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import logo from "../../Assets/logo.png";
+import AuthUser from "../../Hooks/authUser";
 import Loading from "../../Shared/Loading";
+import UserDashboardHeader from "./UserDashboardHeader";
+import UserDashboardNav from "./UserDashboardNav";
 
 const UserDashboard = () => {
   const { userInfo, logout } = AuthUser();
@@ -20,7 +18,7 @@ const UserDashboard = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
         userInfo?._id
       }`
     )

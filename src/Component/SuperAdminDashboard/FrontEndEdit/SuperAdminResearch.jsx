@@ -1,12 +1,10 @@
-import React, { useEffect, useRef } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
-import DeleteHook from "../../../Hooks/DeleteHook";
 import { Icon } from "@iconify/react";
-import UpdateHooks from "../../../Hooks/UpdateHooks";
 import JoditEditor from "jodit-react";
-import { fromJSON } from "postcss";
+import React, { useEffect, useRef, useState } from "react";
+import { toast } from "react-toastify";
+import DeleteHook from "../../../Hooks/DeleteHook";
+import PostHooks from "../../../Hooks/PostHooks";
+import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminResearch = () => {
   const [refetch, setRefetch] = useState(false);
@@ -21,7 +19,7 @@ const SuperAdminResearch = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/research/getresearch`)
+    fetch(`http://localhost:3001/api/v1/research/getresearch`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -41,13 +39,13 @@ const SuperAdminResearch = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/research/updateResearch/${formData?._id}`,
+          `http://localhost:3001/api/v1/research/updateResearch/${formData?._id}`,
           formData
         );
         toast?.success(`Research section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/research/addResearch`,
+          `http://localhost:3001/api/v1/research/addResearch`,
           formData,
           `Research posted`
         );
@@ -162,7 +160,7 @@ const SuperAdminResearch = () => {
       <div className=" my-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <thead>
             <tr className="text-center">
@@ -205,7 +203,7 @@ const SuperAdminResearch = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:5000/api/v1/research/deleteResearch/${research?._id}`,
+                          url: `http://localhost:3001/api/v1/research/deleteResearch/${research?._id}`,
                         })
                       }
                     >

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
 import Lottie from "lottie-react";
-import updateAnimation from "../../../Assets/animation/update.json";
-import AuthUser from "../../../Hooks/authUser";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import updateAnimation from "../../../Assets/animation/update.json";
+import AuthUser from "../../../Hooks/authUser";
 
 const EditProfile = () => {
   const { userInfo } = AuthUser();
@@ -20,10 +20,13 @@ const EditProfile = () => {
   const fetchUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/user/${userInfo._id}`,{
+        `http://localhost:3001/api/v1/user/${userInfo._id}`,
+        {
           headers: {
-            authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-          }
+            authorization: `Bearer ${localStorage.getItem(
+              "visionAccessToken"
+            )}`,
+          },
         }
       );
       if (response.ok) {
@@ -53,7 +56,7 @@ const EditProfile = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/user/${userInfo._id}`,
+        `http://localhost:3001/api/v1/user/${userInfo._id}`,
         {
           method: "PATCH",
           headers: {

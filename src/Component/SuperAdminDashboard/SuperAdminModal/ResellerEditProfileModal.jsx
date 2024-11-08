@@ -1,11 +1,10 @@
-import { Icon } from "@iconify/react";
-import React, { useEffect } from "react";
-import ReactModal from "react-modal";
-import bcrypt from "bcryptjs";
-import { useState } from "react";
 import { Switch } from "@headlessui/react";
-import UpdateHooks from "../../../Hooks/UpdateHooks";
+import { Icon } from "@iconify/react";
+import bcrypt from "bcryptjs";
+import React, { useEffect, useState } from "react";
+import ReactModal from "react-modal";
 import { toast } from "react-toastify";
+import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
   const [account, setAccount] = useState(false);
@@ -38,7 +37,7 @@ const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
     const hashedPassword = bcrypt.hashSync(password);
 
     await UpdateHooks(
-      `http://localhost:5000/api/v1/user/${resellerData?._id}`,
+      `http://localhost:3001/api/v1/user/${resellerData?._id}`,
       {
         password: password ? hashedPassword : resellerData?.password,
         name: name,
@@ -53,7 +52,7 @@ const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
 
   const handelUpdateAccount = async () => {
     await UpdateHooks(
-      `http://localhost:5000/api/v1/user/${resellerData?._id}`,
+      `http://localhost:3001/api/v1/user/${resellerData?._id}`,
       {
         isActive: !account,
       }
@@ -131,7 +130,7 @@ const ResellerEditProfileModal = ({ resellerData, isOpen, closeModal }) => {
                     </Switch>
                     <label
                       className="inline-block pl-2 text-lg font-semibold text-black"
-                      for="flexSwitchCheckDefault"
+                      htmlFor="flexSwitchCheckDefault"
                     >
                       Account
                     </label>

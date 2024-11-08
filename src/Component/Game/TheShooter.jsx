@@ -1,11 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import hitSound from "../../Assets/final new sound/correct-2-46134.mp3"; // Replace with the correct path to the hit sound
-import { useNavigate } from "react-router";
-import AuthUser from "../../Hooks/authUser";
 import moment from "moment";
-import PostHooks from "../../Hooks/PostHooks";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
+import hitSound from "../../Assets/final new sound/correct-2-46134.mp3";
 import { server_url } from "../../Config/API";
-import { useCallback } from "react";
+import AuthUser from "../../Hooks/authUser";
+import PostHooks from "../../Hooks/PostHooks";
 import UpdateHooks from "../../Hooks/UpdateHooks";
 
 const TheShooter = () => {
@@ -125,8 +124,8 @@ const TheShooter = () => {
 
     class Player {
       constructor(x, y) {
-        this.x = canvas.width / 2; // Set the player's initial x position to the center of the canvas
-        this.y = canvas.height / 2; // Set the player's initial y position to the center of the canvas
+        this.x = canvas.width / 2;
+        this.y = canvas.height / 2;
       }
       draw() {
         c.beginPath();
@@ -253,8 +252,7 @@ const TheShooter = () => {
         };
         const projectile = new Projectile(x, y, velocity);
         projectiles.push(projectile);
-        setIsHitSoundPlayed(false); // Reset the flag when a new projectile is created
-
+        setIsHitSoundPlayed(false);
       }
     });
   }, [gameOver, score]);
@@ -266,7 +264,8 @@ const TheShooter = () => {
       hit.currentTime = 0;
       hit.play();
       setScore((prevScore) => prevScore + 1);
-      setBulletHitEnemy(false);    }
+      setBulletHitEnemy(false);
+    }
   }, [bulletHitEnemy, isHitSoundPlayed, score]);
 
   const toggleFullScreen = () => {
@@ -285,7 +284,7 @@ const TheShooter = () => {
     const handleKeyPress = async (event) => {
       if (event.keyCode === 27) {
         insertFunction();
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }

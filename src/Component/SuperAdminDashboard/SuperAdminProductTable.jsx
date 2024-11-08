@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Icon } from "@iconify/react";
-import { toast } from "react-toastify";
-import Loading from "../../Shared/Loading";
-import DeleteHook from "../../Hooks/DeleteHook";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import DeleteHook from "../../Hooks/DeleteHook";
+import Loading from "../../Shared/Loading";
 
 function SuperAdminProductTable() {
   const [products, setProducts] = useState([]);
@@ -18,7 +17,7 @@ function SuperAdminProductTable() {
     async function fetchProducts() {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/v1/products"
+          "http://localhost:3001/api/v1/products"
         );
         setProducts(response.data);
         setLoading(false);
@@ -82,7 +81,7 @@ function SuperAdminProductTable() {
 
       <table
         className="w-full text-left rounded w-overflow-x-auto "
-        cellspacing="0"
+        cellSpacing="0"
       >
         <tbody>
           <tr>
@@ -147,7 +146,7 @@ function SuperAdminProductTable() {
                     DeleteHook({
                       refetch,
                       setRefetch,
-                      url: `http://localhost:5000/api/v1/products/${product?._id}`,
+                      url: `http://localhost:3001/api/v1/products/${product?._id}`,
                     });
                   }}
                   className="border border-secondary py-2 px-3 rounded-md hover:bg-secondary/10 duration-300"

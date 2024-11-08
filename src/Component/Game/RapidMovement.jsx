@@ -1,19 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import moment from "moment";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import correctSound from "../../Assets/final new sound/correct-2-46134.mp3";
 import incorrectSound from "../../Assets/final new sound/invalid-selection-39351.mp3";
-import { useNavigate } from "react-router";
 import { server_url } from "../../Config/API";
 import AuthUser from "../../Hooks/authUser";
-import moment from "moment";
 import PostHooks from "../../Hooks/PostHooks";
-import { useCallback } from "react";
 import UpdateHooks from "../../Hooks/UpdateHooks";
 
 function RapidMovement() {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   const [currentLetter, setCurrentLetter] = useState("");
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [score, setScore] = useState(0); // New state for the score
+  const [score, setScore] = useState(0);
   const [gameActive, setGameActive] = useState(true);
   const [timeLeft, setTimeLeft] = useState(300);
   const navigate = useNavigate();
@@ -175,7 +174,7 @@ function RapidMovement() {
       if (event.keyCode === 27 && isFullScreen) {
         insertFunction();
         // Esc key and in full screen mode
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }

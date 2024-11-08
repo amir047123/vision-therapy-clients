@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import ReactModal from "react-modal";
-import AuthUser from "../../../Hooks/authUser";
 import { toast } from "react-toastify";
 import countryCodes from "../../../CountryCode/CountryCode.json";
+import AuthUser from "../../../Hooks/authUser";
 
 const SuperAdminUserModal = ({ isOpen, closeModal }) => {
   const { userInfo } = AuthUser();
@@ -15,7 +15,7 @@ const SuperAdminUserModal = ({ isOpen, closeModal }) => {
 
   const createUser = async (user) => {
     try {
-      const response = await fetch("http://localhost:5000/api/v1/user/signup", {
+      const response = await fetch("http://localhost:3001/api/v1/user/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

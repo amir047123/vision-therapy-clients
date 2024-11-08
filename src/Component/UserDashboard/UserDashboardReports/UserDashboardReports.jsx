@@ -1,14 +1,12 @@
 import moment from "moment/moment";
-import React from "react";
-import "./UserDashboardReports.css";
-import UserDashboardProgressTable from "./UserDashboardProgressTable";
+import React, { useEffect, useState } from "react";
+import { server_url } from "../../../Config/API";
+import AuthUser from "../../../Hooks/authUser";
+import Loading from "../../../Shared/Loading";
 import UserDashboardDataTable from "./UserDashboardDataTable";
 import UserDashboardDayGrid from "./UserDashboardDayGrid";
-import { useState } from "react";
-import AuthUser from "../../../Hooks/authUser";
-import { useEffect } from "react";
-import { server_url } from "../../../Config/API";
-import Loading from "../../../Shared/Loading";
+import UserDashboardProgressTable from "./UserDashboardProgressTable";
+import "./UserDashboardReports.css";
 
 const UserDashboardReports = () => {
   const [date, setDate] = useState(moment().format("YYYY-MM-D"));
@@ -33,7 +31,7 @@ const UserDashboardReports = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"userId"}&&fieldValue=${
         userInfo?._id
       }`
     )
@@ -197,7 +195,7 @@ const UserDashboardReports = () => {
       <div className="w-full overflow-x-auto">
         <table
           className="w-full text-left border-collapse rounded w-overflow-x-auto bg-white mt-10 "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr className="border-b border-slate-300">
@@ -230,7 +228,7 @@ const UserDashboardReports = () => {
       <div className="w-full overflow-x-auto">
         <table
           className="w-full text-left border-collapse rounded w-overflow-x-auto bg-white mt-10 "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr className="border-b border-slate-300">

@@ -10,7 +10,7 @@ const SuperAdminOrder = () => {
   const fetchOrders = async () => {
     try {
       // Make an HTTP GET request to your API endpoint
-      const response = await axios.get("http://localhost:5000/api/v1/orders");
+      const response = await axios.get("http://localhost:3001/api/v1/orders");
 
       // Filter the received data to keep only "Pending" orders
       const pendingOrders = response.data.filter(
@@ -31,7 +31,7 @@ const SuperAdminOrder = () => {
   const handleDeleteOrder = async (orderId) => {
     try {
       // Make an HTTP DELETE request to delete the order by ID
-      await axios.delete(`http://localhost:5000/api/v1/orders/${orderId}`);
+      await axios.delete(`http://localhost:3001/api/v1/orders/${orderId}`);
 
       // Trigger a data refresh
       fetchOrders();

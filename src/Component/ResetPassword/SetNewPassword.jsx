@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import CommonForgetImg from "../../Assets/reset.svg";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
-import { useEffect } from "react";
 import { server_url } from "../../Config/API";
 import UpdateHooks from "../../Hooks/UpdateHooks";
 
@@ -13,10 +11,10 @@ const SetNewPassword = () => {
   const [user, setUser] = useState({});
   const email = JSON.parse(loginEmail);
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/user/by-email?email=${email}`,{
+    fetch(`http://localhost:3001/api/v1/user/by-email?email=${email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-      }
+      },
     })
       .then((res) => res.json())
       .then((data) => {

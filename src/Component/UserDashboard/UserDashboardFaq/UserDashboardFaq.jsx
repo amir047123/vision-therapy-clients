@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import QuestionCard from "./QuestionCard";
 
 const UserDashboardFaq = () => {
@@ -8,10 +7,10 @@ const UserDashboardFaq = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/userFaq/getuserFaq`,{
+    fetch(`http://localhost:3001/api/v1/userFaq/getuserFaq`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-      }
+      },
     })
       .then((res) => res.json())
       .then((data) => {

@@ -1,9 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
-import { useEffect } from "react";
-import { useState } from "react";
 
 const SuperAdminSteps = () => {
   const [formData, setFormData] = useState({
@@ -19,7 +17,7 @@ const SuperAdminSteps = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/steps/getSteps`)
+    fetch(`http://localhost:3001/api/v1/steps/getSteps`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -35,13 +33,13 @@ const SuperAdminSteps = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/steps/updateSteps/${formData?._id}`,
+          `http://localhost:3001/api/v1/steps/updateSteps/${formData?._id}`,
           formData
         );
         toast?.success(`steps section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/steps/addSteps`,
+          `http://localhost:3001/api/v1/steps/addSteps`,
           formData,
           `steps data posted`
         );

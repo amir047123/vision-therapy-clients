@@ -1,27 +1,26 @@
 import { Icon } from "@iconify/react";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SuperAdminAllPatient from "./SuperAdminAllPatient";
 import SuperAdminUserModal from "./SuperAdminModal/SuperAdminUserModal";
 
 const SuperAdminDashboardIndex = () => {
   const [modalIsOpenAddUser, setModalIsOpenAddUser] = useState(false);
   const [user, setUser] = useState([]);
-  const [totalAccount,setTotalAccount]=useState([])
+  const [totalAccount, setTotalAccount] = useState([]);
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/v1/user",{
+        const response = await fetch("http://localhost:3001/api/v1/user", {
           headers: {
-            authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-          }
+            authorization: `Bearer ${localStorage.getItem(
+              "visionAccessToken"
+            )}`,
+          },
         });
         const data = await response.json();
         const userData = data.data.filter((user) => user.role === "user");
-        setTotalAccount(data?.data)
+        setTotalAccount(data?.data);
         setUser(userData);
-
       } catch (error) {
         console.error("Error fetching doctors:", error);
       }
@@ -75,8 +74,7 @@ const SuperAdminDashboardIndex = () => {
       </div>
       <div className="bg-gray-200 h-[1px] w-full mt-5 "></div>
 
-    
-      <SuperAdminAllPatient/>
+      <SuperAdminAllPatient />
     </div>
   );
 };

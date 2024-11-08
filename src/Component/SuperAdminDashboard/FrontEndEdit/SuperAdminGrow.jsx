@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import UpdateHooks from "../../../Hooks/UpdateHooks";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
 import { singleImageUpload } from "../../../Hooks/ImageUpload";
+import PostHooks from "../../../Hooks/PostHooks";
+import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminGrow = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -14,7 +13,7 @@ const SuperAdminGrow = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/grow/getGrow`)
+    fetch(`http://localhost:3001/api/v1/grow/getGrow`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -30,13 +29,13 @@ const SuperAdminGrow = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/grow/updateGrow/${formData?._id}`,
+          `http://localhost:3001/api/v1/grow/updateGrow/${formData?._id}`,
           { ...formData, img: imageUrl }
         );
         toast?.success(`Grow section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/grow/addGrow`,
+          `http://localhost:3001/api/v1/grow/addGrow`,
           { ...formData, img: imageUrl },
           `grow data posted`
         );

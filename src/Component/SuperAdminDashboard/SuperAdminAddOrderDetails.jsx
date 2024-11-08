@@ -1,6 +1,5 @@
 import { Icon } from "@iconify/react";
-import React, { useState, useEffect } from "react";
-import { toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
 
 // ... (import statements)
 
@@ -18,7 +17,7 @@ const SuperAdminAddOrderDetails = () => {
   const fetchOrderDetails = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/orderDetails/getOrderDetails"
+        "http://localhost:3001/api/v1/orderDetails/getOrderDetails"
       );
 
       const responseData = await response.json();
@@ -50,7 +49,7 @@ const SuperAdminAddOrderDetails = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/v1/orderDetails/addOrderDetails",
+        "http://localhost:3001/api/v1/orderDetails/addOrderDetails",
         {
           method: "POST",
           headers: {
@@ -87,7 +86,7 @@ const SuperAdminAddOrderDetails = () => {
   const handleDelete = async (orderId) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/orderDetails/deleteOrderDetails/${orderId}`,
+        `http://localhost:3001/api/v1/orderDetails/deleteOrderDetails/${orderId}`,
         {
           method: "DELETE",
         }

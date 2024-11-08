@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import PostHooks from "../../../Hooks/PostHooks";
-import DeleteHook from "../../../Hooks/DeleteHook";
 import { Icon } from "@iconify/react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import DeleteHook from "../../../Hooks/DeleteHook";
+import PostHooks from "../../../Hooks/PostHooks";
 import UpdateHooks from "../../../Hooks/UpdateHooks";
 
 const SuperAdminDoctorReview = () => {
@@ -18,7 +17,7 @@ const SuperAdminDoctorReview = () => {
 
   //   load data
   useEffect(() => {
-    fetch(`http://localhost:5000/api/v1/lecture/getlecture`)
+    fetch(`http://localhost:3001/api/v1/lecture/getlecture`)
       .then((res) => res.json())
       .then((data) => {
         if (data?.data.length) {
@@ -38,13 +37,13 @@ const SuperAdminDoctorReview = () => {
     try {
       if (formData?._id) {
         await UpdateHooks(
-          `http://localhost:5000/api/v1/lecture/updateLecture/${formData?._id}`,
+          `http://localhost:3001/api/v1/lecture/updateLecture/${formData?._id}`,
           formData
         );
         toast?.success(`Lecture section Updated !`);
       } else {
         await PostHooks(
-          `http://localhost:5000/api/v1/lecture/addLecture`,
+          `http://localhost:3001/api/v1/lecture/addLecture`,
           formData,
           `Lecture posted`
         );
@@ -155,7 +154,7 @@ const SuperAdminDoctorReview = () => {
       <div className=" my-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <thead>
             <tr className="text-center">
@@ -193,7 +192,7 @@ const SuperAdminDoctorReview = () => {
                         DeleteHook({
                           setRefetch,
                           refetch,
-                          url: `http://localhost:5000/api/v1/lecture/deleteLecture/${lecture?._id}`,
+                          url: `http://localhost:3001/api/v1/lecture/deleteLecture/${lecture?._id}`,
                         })
                       }
                     >

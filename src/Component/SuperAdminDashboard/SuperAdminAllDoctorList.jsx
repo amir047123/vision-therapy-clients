@@ -1,9 +1,9 @@
 import { Icon } from "@iconify/react";
 import React, { useEffect, useState } from "react";
 
-import ResellerEditProfileModal from "./SuperAdminModal/ResellerEditProfileModal";
-import DeleteHook from "../../Hooks/DeleteHook";
 import { Link } from "react-router-dom";
+import DeleteHook from "../../Hooks/DeleteHook";
+import ResellerEditProfileModal from "./SuperAdminModal/ResellerEditProfileModal";
 
 const SuperAdminAllDoctorList = () => {
   const [reseller, setReseller] = useState([]);
@@ -18,10 +18,13 @@ const SuperAdminAllDoctorList = () => {
     const fetchDoctors = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"doctor"}`,{
+          `http://localhost:3001/api/v1/user/specific?fieldName=${"role"}&&fieldValue=${"doctor"}`,
+          {
             headers: {
-              authorization: `Bearer ${localStorage.getItem("visionAccessToken")}`,
-            }
+              authorization: `Bearer ${localStorage.getItem(
+                "visionAccessToken"
+              )}`,
+            },
           }
         );
         const data = await response.json();
@@ -110,7 +113,7 @@ const SuperAdminAllDoctorList = () => {
       <div className="w-full overflow-x-auto mt-10">
         <table
           className="w-full text-left rounded w-overflow-x-auto "
-          cellspacing="0"
+          cellSpacing="0"
         >
           <tbody>
             <tr>
@@ -187,7 +190,7 @@ const SuperAdminAllDoctorList = () => {
                       DeleteHook({
                         refetch,
                         setRefetch,
-                        url: `http://localhost:5000/api/v1/user/${resellerData?._id}`,
+                        url: `http://localhost:3001/api/v1/user/${resellerData?._id}`,
                       });
                     }}
                     className="border border-secondary py-2 px-3 rounded-md hover:bg-secondary/10 duration-300"

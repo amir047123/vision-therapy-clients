@@ -8,10 +8,10 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/api/v1/package/specific?fieldName=${"tran_id"}&&fieldValue=${tran_id}`
+      `http://localhost:3001/api/v1/package/specific?fieldName=${"tran_id"}&&fieldValue=${tran_id}`
     ).then((res) => res.json().then((data) => setData(data?.data[0])));
   }, [tran_id]);
-  
+
   return (
     <div className="box min-h-screen">
       <div className="printer-top"></div>
@@ -24,8 +24,9 @@ const PaymentSuccess = () => {
             <div className="success-icon">&#10004;</div>
             <div className="success-title">Payment Complete</div>
             <div className="success-description">
-              <b>{data?.userName}</b> Your payment for <b className="text-primary">{data?.packagePrice}</b> in BDT has been received and send to
-              vision
+              <b>{data?.userName}</b> Your payment for{" "}
+              <b className="text-primary">{data?.packagePrice}</b> in BDT has
+              been received and send to vision
             </div>
             <div className="order-details">
               <div className="order-number-label">Transition id</div>

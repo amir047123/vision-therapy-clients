@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import moment from "moment";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import correctSound from "../../Assets/final new sound/correct-2-46134.mp3";
 import wrongSound from "../../Assets/final new sound/invalid-selection-39351.mp3";
-import { useNavigate } from "react-router";
-import AuthUser from "../../Hooks/authUser";
-import moment from "moment";
 import { server_url } from "../../Config/API";
+import AuthUser from "../../Hooks/authUser";
 import PostHooks from "../../Hooks/PostHooks";
 import UpdateHooks from "../../Hooks/UpdateHooks";
 
@@ -16,7 +16,7 @@ const SearchQuest = () => {
   const navigate = useNavigate();
   // Full screen event listener
   const [isFullScreen, setIsFullScreen] = useState(false);
-  const [suggestionClicks, setSuggestionClicks] = useState(0); // Counter for
+  const [suggestionClicks, setSuggestionClicks] = useState(0);
   const suggestionRef = useRef(null);
   suggestionRef.current = suggestion;
 
@@ -39,7 +39,9 @@ const SearchQuest = () => {
       "!?:;-.+-×÷=><€£¥₹$₿0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     // Filter out characters that have already been used
-    const availableCharacters = characters.split("").filter(char => !usedCharacters.has(char));
+    const availableCharacters = characters
+      .split("")
+      .filter((char) => !usedCharacters.has(char));
 
     if (availableCharacters.length === 0) {
       // All characters have been used, reset the set
@@ -229,7 +231,7 @@ const SearchQuest = () => {
       if (event.keyCode === 27 && isFullScreen) {
         insertFunction();
         // Esc key and in full screen mode
-        await navigate(-1); // Navigate to the previous route
+        await navigate(-1);
         toggleFullScreen();
         // console.log("isFull");
       }
